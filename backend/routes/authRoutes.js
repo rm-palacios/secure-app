@@ -133,7 +133,6 @@ router.post('/2fa/verify', (req, res) => {
             console.error('Usuario no encontrado o error al buscar el usuario:', err);
             return res.status(500).json({ error: 'Usuario no encontrado' });
         }
-
         const verified = speakeasy.totp.verify({
             secret: userRecord.two_factor_secret,
         });
